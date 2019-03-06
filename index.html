@@ -87,7 +87,7 @@
                 <div class="container-fluid">
                   <p class="lead">Help us inform the public:</p>
                   <hr />
-                  <small class="form-text text-muted">Date:</small>
+                  <small class="form-text text-muted pb-1">Date:</small>
                   <div class="form-group">
                     <input
                       type="date"
@@ -95,7 +95,7 @@
                       placeholder="Date Sighted"
                     />
                   </div>
-                  <small class="form-text text-muted">City:</small>
+                  <small class="form-text text-muted pb-1">City:</small>
                   <div class="form-group">
                     <input
                       type="text"
@@ -104,7 +104,7 @@
                       placeholder="City"
                     />
                   </div>
-                  <small class="form-text text-muted">State:</small>
+                  <small class="form-text text-muted pb-1">State:</small>
                   <div class="form-group">
                     <select class="custom-select">
                       <option selected>Select one</option>
@@ -161,7 +161,7 @@
                       <option value="WY">Wyoming</option>
                     </select>
                   </div>
-                  <small class="form-text text-muted">Shape:</small>
+                  <small class="form-text text-muted pb-1">Shape:</small>
                   <div class="form-group">
                     <select class="form-control">
                       <option value="circle">Circle</option>
@@ -184,15 +184,50 @@
                       <option value="other">Other</option>
                     </select>
                   </div>
-                  <small class="form-text text-muted">Duration:</small>
-                  b4-form Date City State Country Shape Duration Comments
+                  <small class="form-text text-muted pb-1">Duration:</small>
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <input
+                        type="number"
+                        class="form-control"
+                        placeholder="Duration"
+                        aria-describedby="helpId"
+                      />
+                      <div class="form-check form-check-inline pl-2">
+                      <label class="form-check-label">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          value="minutes"
+                          name="durationvalue"
+                        />
+                        Minutes
+                      </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            value="hours"
+                            name="durationvalue"
+                            />
+                            Hours
+                        </label>
+                      </div>
+                  </form>
+                </div>
+                <small class="form-text text-muted pt-2 pb-1">Comments:</small>
+                <div class="form-group">
+                  <textarea class="form-control" name="" id="" rows="3"></textarea>
+                </div>
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-dismiss="modal">
+                <button type="button" class="btn btn-light" data-dismiss="modal">
                   Close
                 </button>
-                <button type="button" class="btn btn-primary">Report</button>
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Report</button>
               </div>
             </div>
           </div>
