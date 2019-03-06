@@ -1,0 +1,22 @@
+.bg {
+  background-image: url(http://imgsrc.hubblesite.org/hvi/uploads/image_file/image_attachment/28735/xlarge_web.jpg);
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+h1 {
+  font-family: "Amatic SC", cursive;
+}
+#header {
+  padding-top: 20%;
+  padding-bottom: 20%;
+}
+.transparent {
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.6),
+    rgba(255, 255, 255, 0.25)
+  );
+}
+nav.transparent {
+  background: rgba(0, 0, 0, 0.75);
+}
