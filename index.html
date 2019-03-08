@@ -1,112 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Out There</title>
-    <link rel="shortcut icon" href="static/img/shortcut.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Amatic+SC"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="static/css/style.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <!-- 
-  Title text sticky top of horizon
-  lead text scrolls to  sticky-bottom of horizon
-  bg img sticky
-  data button fade into view with scroll?
 
- -->
-  <body>
-    <div class="bg">
-      <nav class="navbar transparent navbar-dark">
-        <a class="navbar-brand" href="#">
-          <i class="fas fa-user-astronaut"></i>
-        </a>
-        <!-- Button trigger modal -->
-        <button
-          type="button"
-          class="btn btn-dark btn-sm"
-          data-toggle="modal"
-          data-target="#modelId"
-        >
-          Report A Sighting
-        </button>
+<head>
+  <meta charset="utf-8" />
+  <title>Out There</title>
+  <link rel="shortcut icon" href="static/img/shortcut.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
 
-        <!-- Modal -->
-        <div
-          class="modal fade"
-          id="modelId"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="modelTitleId"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog bg-dark" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Report A Sighting</h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="container-fluid">
-                  <p class="lead">Help us inform the public:</p>
-                  <hr />
-                  <small class="form-text text-muted pb-1">Date:</small>
+<body>
+  <div class="bg">
+    <nav class="navbar transparent navbar-dark">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-user-astronaut"></i>
+      </a>
+      <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#modelId">
+        Report A Sighting
+      </button>
+      <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-light">Report A Sighting</h5>
+              <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid">
+                <form>
+                  <small class="form-text pb-1">Date:</small>
                   <div class="form-group">
-                    <input
-                      type="date"
-                      class="form-control"
-                      placeholder="Date Sighted"
-                    />
+                    <input type="date" class="form-control" placeholder="Date Sighted" name="date" />
                   </div>
-                  <small class="form-text text-muted pb-1">City:</small>
+                </form>
+                <form>
+                  <small class="form-text pb-1">City:</small>
                   <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      aria-describedby="helpId"
-                      placeholder="City"
-                    />
+                    <input type="text" class="form-control" aria-describedby="helpId" placeholder="City" name="city" />
                   </div>
-                  <small class="form-text text-muted pb-1">State:</small>
+                </form>
+                <form>
+                  <small class="form-text pb-1">State:</small>
                   <div class="form-group">
-                    <select class="custom-select">
+                    <select class="form-control" name="state">
                       <option selected>Select one</option>
                       <option value="AL">Alabama</option>
                       <option value="AK">Alaska</option>
@@ -161,9 +111,12 @@
                       <option value="WY">Wyoming</option>
                     </select>
                   </div>
-                  <small class="form-text text-muted pb-1">Shape:</small>
+                </form>
+                <form>
+                  <small class="form-text pb-1">Shape:</small>
                   <div class="form-group">
-                    <select class="form-control">
+                    <select class="form-control" name="shape">
+                      <option selected>Select One</option>
                       <option value="circle">Circle</option>
                       <option value="oval">Oval</option>
                       <option value="sphere">Sphere</option>
@@ -184,83 +137,104 @@
                       <option value="other">Other</option>
                     </select>
                   </div>
-                  <small class="form-text text-muted pb-1">Duration:</small>
-                  <form class="form-inline">
-                    <div class="form-group">
-                      <input
-                        type="number"
-                        class="form-control"
-                        placeholder="Duration"
-                        aria-describedby="helpId"
-                      />
-                      <div class="form-check form-check-inline pl-2">
-                      <label class="form-check-label">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          value="minutes"
-                          name="durationvalue"
-                        />
+                </form>
+                <small class="form-text pb-1">Duration:</small>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Duration" aria-describedby="helpId" name="duration" />
+                    <div class="form-check-inline pl-2">
+                      <label class="form-check-label text-light">
+                        <input class="form-check-input" type="radio" value="minutes" name="durationMinutes" />
                         Minutes
                       </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            value="hours"
-                            name="durationvalue"
-                            />
-                            Hours
-                        </label>
-                      </div>
+                    </div>
+                    <div class="form-check-inline pl-2">
+                      <label class="form-check-label text-light">
+                        <input class="form-check-input" type="radio" value="hours" name="durationMinutes" />
+                        Hours
+                      </label>
+                    </div>
+                  </div>
+                </form>
+                <form>
+                  <small class="form-text pt-2 pb-1">Comments:</small>
+                  <div class="form-group">
+                    <textarea class="form-control" rows="3" id="myTextarea" name="comments"></textarea>
+                    <small id="counter" class="text-light"></small>
+                    <script type="text/javascript">
+                      $("#myTextarea").keyup(function () {
+                        var remaining = 200 - $(this).val().length;
+                        if (remaining < 0) {
+                          remaining = 0;
+                        }
+                        $("#counter").text("Characters left: " + remaining);
+                      });
+                    </script>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" data-dismiss="modal" id="add">
+                Report
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div id="header" class="row transparent mx-0">
+      <div class="container">
+        <div class="flex-container text-center">
+          <h1 class="display-4 text-light glitch" data-text="UFO Sightings">
+            UFO Sightings
+          </h1>
+        </div>
+        <p class="lead text-center text-light">
+          Proof through observation
+        </p>
+        <div id="buttonDiv" class="text-center">
+          <button id="exploreButton" type="button" class="btn btn-light btn-lg">
+            Explore Sightings
+          </button>
+          <button id="filterButton" type="button" class="d-none" data-toggle="modal" data-target="#filtermodal">
+            Filter Sightings
+          </button>
+        </div>
+        <div class="modal fade" id="filtermodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title rounded-0 text-light">Filter by columns or keywords</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <small id="helpId" class="text-light">Key Words: </small>
+                      <input type="text" name="kwid" id="kwid" class="form-control" placeholder="Keyword"
+                        aria-describedby="helpId">
+                    </div>
                   </form>
-                </div>
-                <small class="form-text text-muted pt-2 pb-1">Comments:</small>
-                <div class="form-group">
-                  <textarea class="form-control" name="" id="" rows="3"></textarea>
-                </div>
+
                 </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">
-                  Close
-                </button>
-                <button type="button" class="btn btn-dark" data-dismiss="modal">Report</button>
+              <div class="modal-footer rounded-0">
+                <button type="button" class="btn btn-light transparent" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-light">Filter</button>
               </div>
             </div>
           </div>
         </div>
-
-        <script>
-          $("#exampleModal").on("show.bs.modal", event => {
-            var button = $(event.relatedTarget);
-            var modal = $(this);
-            // Use above variables to manipulate the DOM
-          });
-        </script>
-        <div class="form-inline d-flex d-md-none">
-          <input
-            type="text"
-            class="form-control"
-            id="navsearch"
-            placeholder="Search"
-          />
-        </div>
-      </nav>
-      <div id="header" class="row transparent">
-        <div class="container">
-          <h1 class="display-3 text-md-center text-light">
-            UFO Sightings
-          </h1>
-          <p class="lead text-md-center text-light">
-            Proof through observation
-          </p>
-        </div>
       </div>
     </div>
-    <table id="ufo-table" class="table table-striped">
+  </div>
+  <div id="placeholder"></div>
+
+  <!--      <table id="ufo-table" class="table table-striped">
       <thead>
         <tr>
           <th class="table-head">Date</th>
@@ -273,6 +247,9 @@
         </tr>
       </thead>
       <tbody></tbody>
-    </table>
-  </body>
+    </table> -->
+</body>
+<script src="static/js/data.js"></script>
+<script src="static/js/main.js"></script>
+
 </html>
