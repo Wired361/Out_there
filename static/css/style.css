@@ -1,3 +1,7 @@
+table {
+  table-layout: fixed;
+}
+
 .bg {
   background-image: url(http://imgsrc.hubblesite.org/hvi/uploads/image_file/image_attachment/28735/xlarge_web.jpg);
   height: 100%;
@@ -108,7 +112,6 @@
   }
 }
 
-
 .glitch:after {
   content: attr(data-text);
   position: absolute;
@@ -116,7 +119,7 @@
   text-shadow: -1px 0 rebeccapurple;
   top: 0;
   color: white;
-  background: rgba(0, 0, 0, 0.0);
+  background: rgba(0, 0, 0, 0);
   overflow: hidden;
   clip: rect(0, 900px, 0, 0);
   animation: noise-anim 2s infinite linear alternate-reverse;
@@ -215,17 +218,19 @@
   text-shadow: 1px 0 blue;
   top: 0;
   color: white;
-  background: rgba(0, 0, 0, 0.0);
+  background: rgba(0, 0, 0, 0);
   overflow: hidden;
   clip: rect(0, 900px, 0, 0);
   animation: noise-anim-2 3s infinite linear alternate-reverse;
 }
 
 .transparent {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5),
     rgba(0, 0, 0, 0.25),
     rgba(0, 0, 0, 0),
-    rgba(200, 200, 200, 0.25));
+    rgba(200, 200, 200, 0.25)
+  );
 }
 
 nav.transparent {
