@@ -1,227 +1,297 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Out There</title>
+    <link rel="shortcut icon" href="static/img/shortcut.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic+SC"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Out There</title>
-  <link rel="shortcut icon" href="static/img/shortcut.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-    crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <link rel="stylesheet" href="static/css/style.css" />
-</head>
-
-<body>
-  <div class="bg">
-    <nav class="navbar transparent navbar-dark">
-      <a class="navbar-brand" href="#">
-        <i class="fas fa-user-astronaut"></i>
-      </a>
-      <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#modelId">
-        Report A Sighting
-      </button>
-      <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title text-light">Report A Sighting</h5>
-              <button type="button" class="close " data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="container-fluid">
-                <form>
-                  <small class="form-text pb-1">Date:</small>
-                  <div class="form-group">
-                    <input type="date" class="form-control" placeholder="Date Sighted" name="date" />
-                  </div>
-                </form>
-                <form>
-                  <small class="form-text pb-1">City:</small>
-                  <div class="form-group">
-                    <input type="text" class="form-control" aria-describedby="helpId" placeholder="City" name="city" />
-                  </div>
-                </form>
-                <form>
-                  <small class="form-text pb-1">State:</small>
-                  <div class="form-group">
-                    <select class="form-control" name="state">
-                      <option selected>Select one</option>
-                      <option value="AL">Alabama</option>
-                      <option value="AK">Alaska</option>
-                      <option value="AZ">Arizona</option>
-                      <option value="AR">Arkansas</option>
-                      <option value="CA">California</option>
-                      <option value="CO">Colorado</option>
-                      <option value="CT">Connecticut</option>
-                      <option value="DE">Delaware</option>
-                      <option value="DC">District Of Columbia</option>
-                      <option value="FL">Florida</option>
-                      <option value="GA">Georgia</option>
-                      <option value="HI">Hawaii</option>
-                      <option value="ID">Idaho</option>
-                      <option value="IL">Illinois</option>
-                      <option value="IN">Indiana</option>
-                      <option value="IA">Iowa</option>
-                      <option value="KS">Kansas</option>
-                      <option value="KY">Kentucky</option>
-                      <option value="LA">Louisiana</option>
-                      <option value="ME">Maine</option>
-                      <option value="MD">Maryland</option>
-                      <option value="MA">Massachusetts</option>
-                      <option value="MI">Michigan</option>
-                      <option value="MN">Minnesota</option>
-                      <option value="MS">Mississippi</option>
-                      <option value="MO">Missouri</option>
-                      <option value="MT">Montana</option>
-                      <option value="NE">Nebraska</option>
-                      <option value="NV">Nevada</option>
-                      <option value="NH">New Hampshire</option>
-                      <option value="NJ">New Jersey</option>
-                      <option value="NM">New Mexico</option>
-                      <option value="NY">New York</option>
-                      <option value="NC">North Carolina</option>
-                      <option value="ND">North Dakota</option>
-                      <option value="OH">Ohio</option>
-                      <option value="OK">Oklahoma</option>
-                      <option value="OR">Oregon</option>
-                      <option value="PA">Pennsylvania</option>
-                      <option value="RI">Rhode Island</option>
-                      <option value="SC">South Carolina</option>
-                      <option value="SD">South Dakota</option>
-                      <option value="TN">Tennessee</option>
-                      <option value="TX">Texas</option>
-                      <option value="UT">Utah</option>
-                      <option value="VT">Vermont</option>
-                      <option value="VA">Virginia</option>
-                      <option value="WA">Washington</option>
-                      <option value="WV">West Virginia</option>
-                      <option value="WI">Wisconsin</option>
-                      <option value="WY">Wyoming</option>
-                    </select>
-                  </div>
-                </form>
-                <form>
-                  <small class="form-text pb-1">Shape:</small>
-                  <div class="form-group">
-                    <select class="form-control" name="shape">
-                      <option selected>Select One</option>
-                      <option value="circle">Circle</option>
-                      <option value="oval">Oval</option>
-                      <option value="sphere">Sphere</option>
-                      <option value="teardrop">Teardrop</option>
-                      <option value="disk">Disk</option>
-                      <option value="cylinder">Cylinder</option>
-                      <option value="triangle">Triangle</option>
-                      <option value="chevron">Chevron</option>
-                      <option value="rectangle">Rectangle</option>
-                      <option value="cross">Cross</option>
-                      <option value="cigar">Cigar</option>
-                      <option value="light">Light</option>
-                      <option value="changing">Changed Shape</option>
-                      <option value="formation">Formation</option>
-                      <option value="fireball">Fireball</option>
-                      <option value="flash">Flash</option>
-                      <option value="unknown">Unknown</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                </form>
-                <small class="form-text pb-1">Duration:</small>
-                <form class="form-inline">
-                  <div class="form-group">
-                    <input type="number" class="form-control" placeholder="Duration" aria-describedby="helpId" name="duration" />
-                    <div class="form-check-inline pl-2">
-                      <label class="form-check-label text-light">
-                        <input class="form-check-input" type="radio" value="minutes" name="durationMinutes" />
-                        Minutes
-                      </label>
-                    </div>
-                    <div class="form-check-inline pl-2">
-                      <label class="form-check-label text-light">
-                        <input class="form-check-input" type="radio" value="hours" name="durationMinutes" />
-                        Hours
-                      </label>
-                    </div>
-                  </div>
-                </form>
-                <form>
-                  <small class="form-text pt-2 pb-1">Comments:</small>
-                  <div class="form-group">
-                    <textarea class="form-control" rows="3" id="myTextarea" name="comments"></textarea>
-                    <small id="counter" class="text-light"></small>
-                    <script type="text/javascript">
-                      $("#myTextarea").keyup(function () {
-                        var remaining = 200 - $(this).val().length;
-                        if (remaining < 0) {
-                          remaining = 0;
-                        }
-                        $("#counter").text("Characters left: " + remaining);
-                      });
-                    </script>
-                  </div>
-                </form>
+  <body>
+    <div class="bg">
+      <nav class="navbar transparent navbar-dark pb-0">
+        <a class="navbar-brand" href="#">
+          <i class="fas fa-user-astronaut"></i>
+        </a>
+        <button
+          type="button"
+          class="btn btn-dark btn-sm"
+          data-toggle="modal"
+          data-target="#modelId"
+        >
+          Report A Sighting
+        </button>
+        <div
+          class="modal fade"
+          id="modelId"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="modelTitleId"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-light">Report A Sighting</h5>
+                <button
+                  type="button"
+                  class="close "
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-light" data-dismiss="modal" id="add">
-                Report
-              </button>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <form>
+                    <small class="form-text pb-1">Date:</small>
+                    <div class="form-group">
+                      <input
+                        type="date"
+                        class="form-control"
+                        placeholder="Date Sighted"
+                        name="date"
+                      />
+                    </div>
+                  </form>
+                  <form>
+                    <small class="form-text pb-1">City:</small>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        aria-describedby="helpId"
+                        placeholder="City"
+                        name="city"
+                      />
+                    </div>
+                  </form>
+                  <form>
+                    <small class="form-text pb-1">State:</small>
+                    <div class="form-group">
+                      <select class="form-control" name="state">
+                        <option selected>Select one</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                      </select>
+                    </div>
+                  </form>
+                  <form>
+                    <small class="form-text pb-1">Shape:</small>
+                    <div class="form-group">
+                      <select class="form-control" name="shape">
+                        <option selected>Select One</option>
+                        <option value="circle">Circle</option>
+                        <option value="oval">Oval</option>
+                        <option value="sphere">Sphere</option>
+                        <option value="teardrop">Teardrop</option>
+                        <option value="disk">Disk</option>
+                        <option value="cylinder">Cylinder</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="chevron">Chevron</option>
+                        <option value="rectangle">Rectangle</option>
+                        <option value="cross">Cross</option>
+                        <option value="cigar">Cigar</option>
+                        <option value="light">Light</option>
+                        <option value="changing">Changed Shape</option>
+                        <option value="formation">Formation</option>
+                        <option value="fireball">Fireball</option>
+                        <option value="flash">Flash</option>
+                        <option value="unknown">Unknown</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </form>
+                  <small class="form-text pb-1">Duration:</small>
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <input
+                        type="number"
+                        class="form-control"
+                        placeholder="Duration"
+                        aria-describedby="helpId"
+                        name="duration"
+                      />
+                      <div class="form-check-inline pl-2">
+                        <label class="form-check-label text-light">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            value="minutes"
+                            name="durationMinutes"
+                          />
+                          Minutes
+                        </label>
+                      </div>
+                      <div class="form-check-inline pl-2">
+                        <label class="form-check-label text-light">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            value="hours"
+                            name="durationMinutes"
+                          />
+                          Hours
+                        </label>
+                      </div>
+                    </div>
+                  </form>
+                  <form>
+                    <small class="form-text pt-2 pb-1">Comments:</small>
+                    <div class="form-group">
+                      <textarea
+                        class="form-control"
+                        rows="3"
+                        id="myTextarea"
+                        name="comments"
+                      ></textarea>
+                      <small id="counter" class="text-light"></small>
+                      <script type="text/javascript">
+                        $('#myTextarea').keyup(function() {
+                          var remaining = 200 - $(this).val().length;
+                          if (remaining < 0) {
+                            remaining = 0;
+                          }
+                          $('#counter').text('Characters left: ' + remaining);
+                        });
+                      </script>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  data-dismiss="modal"
+                  id="add"
+                >
+                  Report
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
-    <div id="header" class="row transparent mx-0">
-      <div class="container">
-        <div class="flex-container text-center">
-          <h1 class="display-4 text-light glitch" data-text="UFO Sightings">
-            UFO Sightings
-          </h1>
-        </div>
-        <p class="lead text-center text-light">
-          Proof through observation
-        </p>
-        <div id="buttonDiv" class="text-center">
-          <button id="exploreButton" type="button" class="btn btn-light btn-lg">
-            Explore Sightings
-          </button>
-          <button id="allButton" type="button" class="d-none" data-toggle="modal">
-            Filter Sightings
-          </button>
+      </nav>
+      <div id="header" class="row mx-0 justify-content-center">
+        <div class="flex-container justify-content-center">
+          <div class="flex-container text-center">
+            <h1 class="display-4 text-light" data-text="UFO Sightings">
+              UFO Sightings
+            </h1>
+          </div>
+          <p class="lead text-center text-light">
+            Proof through observation
+          </p>
+          <div id="placeholder"></div>
+          <div id="buttonDiv" class="text-center">
+            <button id="allButton" type="button" class="btn btn-light btn-lg">
+              View Sightings
+            </button>
+            <form id="filterForm" class="d-none">
+              <div class="form-group">
+                <label for="dataFilter"></label>
+                <input
+                  type="text"
+                  name="dataFilter"
+                  id="dataFilter"
+                  class="form-control"
+                  placeholder=""
+                  aria-describedby="helpId"
+                />
+                <button id="searchButton" type="button" class="d-none">
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div id="placeholder"></div>
-
-  <!--      <table id="ufo-table" class="table table-striped">
-      <thead>
-        <tr>
-          <th class="table-head">Date</th>
-          <th class="table-head">City</th>
-          <th class="table-head">State</th>
-          <th class="table-head">Country</th>
-          <th class="table-head">Shape</th>
-          <th class="table-head">Duration</th>
-          <th class="table-head">Comments</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table> -->
-</body>
-<script src="static/js/data.js"></script>
-<script src="static/js/main.js"></script>
-
+  </body>
+  <script src="static/js/data.js"></script>
+  <script src="static/js/main.js"></script>
 </html>
