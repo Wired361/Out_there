@@ -230,12 +230,12 @@
                       ></textarea>
                       <small id="counter" class="text-light"></small>
                       <script type="text/javascript">
-                        $('#myTextarea').keyup(function() {
+                        $("#myTextarea").keyup(function() {
                           var remaining = 200 - $(this).val().length;
                           if (remaining < 0) {
                             remaining = 0;
                           }
-                          $('#counter').text('Characters left: ' + remaining);
+                          $("#counter").text("Characters left: " + remaining);
                         });
                       </script>
                     </div>
@@ -275,14 +275,18 @@
               <div class="form-group">
                 <label for="dataFilter"></label>
                 <input
-                  type="text"
-                  name="dataFilter"
-                  id="dataFilter"
+                  id="dateFilter"
+                  type="date"
                   class="form-control"
-                  placeholder=""
-                  aria-describedby="helpId"
+                  placeholder="Date Sighted"
+                  name="date"
                 />
-                <button id="searchButton" type="button" class="d-none">
+                <button
+                  id="searchButton"
+                  type="button"
+                  class="d-none"
+                  onclick="tableFilter()"
+                >
                   Search
                 </button>
               </div>
