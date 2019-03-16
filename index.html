@@ -42,13 +42,13 @@
 
   <body>
     <div class="bg">
-      <nav class="navbar transparent navbar-dark pb-0">
-        <a class="navbar-brand" href="#">
+      <nav class="navbar transparent navbar-dark py-0">
+        <a class="navbar-brand">
           <i class="fas fa-user-astronaut"></i>
         </a>
         <button
           type="button"
-          class="btn btn-dark btn-sm"
+          class="btn btn-dark btn-sm py-auto"
           data-toggle="modal"
           data-target="#modelId"
         >
@@ -266,31 +266,46 @@
           <p class="lead text-center text-light">
             Proof through observation
           </p>
+          <form id="filterForm" class="d-none">
+            <div class="form-group">
+              <label for="date" class="text-light pr-1">Date Sighted:</label>
+              <input
+                id="dateFilter"
+                type="date"
+                class="form-control"
+                name="date"
+                value="2010-01-01"
+                min="2010-01-01"
+                max="2010-01-13"
+                onchange="filterByDate()"
+              />
+              <button
+                id="searchButton"
+                type="button"
+                class="d-none"
+                onclick="filterByDate()"
+              >
+                Search
+              </button>
+              <button
+                id="resetButton"
+                type="button"
+                class="d-none"
+                onclick="resetData()"
+              >
+                Reset
+              </button>
+            </div>
+          </form>
           <div id="placeholder"></div>
           <div id="buttonDiv" class="text-center">
-            <button id="allButton" type="button" class="btn btn-light btn-lg">
+            <button
+              id="allButton"
+              type="button"
+              class="btn btn-sm btn-light btn-lg"
+            >
               View Sightings
             </button>
-            <form id="filterForm" class="d-none">
-              <div class="form-group">
-                <label for="dataFilter"></label>
-                <input
-                  id="dateFilter"
-                  type="date"
-                  class="form-control"
-                  placeholder="Date Sighted"
-                  name="date"
-                />
-                <button
-                  id="searchButton"
-                  type="button"
-                  class="d-none"
-                  onclick="tableFilter()"
-                >
-                  Search
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       </div>
